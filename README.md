@@ -58,3 +58,17 @@ optional arguments:
   --zone ZONE, -z ZONE  AWS hosted zone id
   --ttl TTL             Record TTL
 ```
+# Containerized implementation
+Feel free to build your own container, or use this public one I made (with the source in this repo).
+
+Then run it with your info in env-vars like so (all 6 are required) 
+``` bash
+podman run -it \
+--env DOMAIN=[home.my-r53-hosted-domain.com] \
+--env ZONE=[route53-zone-id]\
+--env TTL=300 \
+--env AWS_ACCESS_KEY_ID=[my_access_key] \
+--env AWS_SECRET_ACCESS_KEY=[my-secret-key] \
+--env AWS_DEFAULT_REGION=us-east-1  \
+quay.io/glitchcowboy/aws-dyndns:latest
+```
