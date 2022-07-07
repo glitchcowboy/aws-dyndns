@@ -9,7 +9,7 @@ class AWSDynDns(object):
         self.client = session.client('route53')
         self.domain = domain
         self.record = record
-        self.ttl = ttl
+        self.ttl = int(ttl)
         self.hosted_zone_id = hosted_zone_id
         if self.record:
             self.fqdn = "{0}.{1}".format(self.record, self.domain)
